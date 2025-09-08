@@ -26,12 +26,10 @@ const Navbar = () => {
       >
         <a
           href="/"
-          className="text-2xl font-semibold text-black dark:text-white transition-colors"
+          className="text-2xl font-semibold text-black dark:text-white transition-colors font-poppins"
         >
           Apaa<span className="text-red-700">.</span>
         </a>
-
-        {/* Desktop menu */}
         <ul className="hidden md:flex items-center gap-8 font-poppins text-base text-black dark:text-white">
           {["Home", "About Me", "Project", "Contact"].map((item) => (
             <li key={item}>
@@ -45,21 +43,21 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-
         <div className="flex items-center gap-4">
-          {/* Dark mode */}
           <button
             onClick={toggleDarkMode}
             className="transition-transform duration-300 hover:scale-110"
+            aria-label="Toggle Dark Mode"
+            title="Toggle Dark Mode"
           >
             <Sun className="hidden h-6 w-6 text-yellow-400 dark:block" />
             <Moon className="h-6 w-6 text-gray-700 dark:hidden" />
           </button>
-
-          {/* Hamburger */}
           <button
             onClick={toggleMenu}
             className="md:hidden transition-transform duration-300 hover:scale-110"
+            aria-label="Toggle Menu"
+            title="Toggle Menu"
           >
             <svg
               className={`h-6 w-6 transition-transform duration-300 text-black dark:text-white ${isOpen ? "rotate-90" : ""}`}
@@ -78,8 +76,6 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-
-      {/* Overlay menu (mobile) */}
       <div
         className={`fixed top-0 left-0 w-full h-screen z-40 flex items-center justify-center bg-white dark:bg-black
         transition-all duration-500 ease-in-out
@@ -87,12 +83,12 @@ const Navbar = () => {
         onClick={toggleMenu}
       >
         <ul
-          className={`text-3xl space-y-8 text-center text-black dark:text-white transform transition-all
+          className={`text-3xl space-y-8 text-center text-black dark:text-white transform transition-all font-poppins
           ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"}`}
           onClick={(e) => e.stopPropagation()}
         >
           <li><a href="#top" onClick={toggleMenu}>Home</a></li>
-          <li><a href="#about" onClick={toggleMenu}>About Me</a></li>
+          <li><a href="#aboutme" onClick={toggleMenu}>About Me</a></li>
           <li><a href="#project" onClick={toggleMenu}>Project</a></li>
           <li><a href="#contact" onClick={toggleMenu}>Contact</a></li>
         </ul>

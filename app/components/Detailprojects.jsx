@@ -5,7 +5,7 @@
 // import Marquee from "react-fast-marquee";
 // import Image from "next/image";
 // import { assets } from "@/assets/assets";
-// import { projects } from "../data/projects"; // ⬅️ import data
+// import { projects } from "../data/projects";
 
 // const DetailProjects = ({ isOpen, onClose }) => {
 //   const images = [

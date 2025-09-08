@@ -23,6 +23,6 @@ export const projects = [
     title: "Portofolio Website",
     img: assets.project2,
     tools: ["Next.js", "Tailwind", "JavaScript", "API"],
-    github: "https://github.com/username/project3",
+    github: "https://github.com/Aryapaa/apaa-portofolio",
   },
 ];

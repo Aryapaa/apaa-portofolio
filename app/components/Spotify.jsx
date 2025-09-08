@@ -18,25 +18,17 @@ export default function Spotify() {
     };
 
     fetchData();
-    const interval = setInterval(fetchData, 10000); // refresh tiap 10s
+    const interval = setInterval(fetchData, 10000);
     return () => clearInterval(interval);
   }, []);
 
-  if (!track) {
-    return (
-      <div className="p-3 rounded-sm shadow text-center border border-gray-300/30 bg-gray-100 dark:bg-zinc-900 flex items-center justify-center gap-2">
-        <FaSpotify className="text-green-500 w-5 h-5" />
-        <p className="text-gray-700 dark:text-gray-300 text-sm font-poppins">
-          Currently Offline
-        </p>
-      </div>
-    );
-  }
+  if (!track) return null;
 
   return (
     <motion.div
-      className="mt-2 flex items-center gap-4 p-3 rounded-2xl shadow-md 
-                 bg-gray-50 dark:bg-zinc-900 border border-gray-300/30"
+      className="flex items-center gap-3 sm:gap-4 
+             p-3 sm:p-4 rounded-2xl shadow-md bg-gray-50 dark:bg-zinc-900 
+             border border-gray-300/30 w-full"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -45,29 +37,30 @@ export default function Spotify() {
         href={track.songUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-4 w-full"
+        className="flex items-center gap-3 sm:gap-4 w-full"
       >
         <motion.img
           src={track.albumImageUrl}
           alt={track.title}
-          className="w-16 h-16 rounded-lg shadow-md"
+          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg shadow-md flex-shrink-0"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         />
-
-        <div className="flex flex-col truncate">
-          <p className="font-semibold text-base truncate font-poppins">{track.title}</p>
-          <p className="text-sm text-gray-600 dark:text-gray-400 truncate font-poppins">
+        <div className="flex flex-col truncate min-w-0 text-left">
+          <p className="font-semibold text-sm sm:text-base truncate font-poppins">
+            {track.title}
+          </p>
+          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 truncate font-poppins">
             {track.artist}
           </p>
           <span
-            className={`mt-1 text-xs font-medium font-inter ${
-              track.isPlaying ? "text-green-600" : "text-gray-500"
-            }`}
+            className={`mt-1 text-xs sm:text-sm font-medium font-inter ${track.isPlaying ? "text-green-600" : "text-gray-500"
+              }`}
           >
             {track.isPlaying ? "Currently Listening" : "Last Played"}
           </span>
         </div>
+        <FaSpotify className="text-green-500 w-5 h-5 sm:w-6 sm:h-6 ml-auto flex-shrink-0" />
       </a>
     </motion.div>
   );

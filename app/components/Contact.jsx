@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaInstagram, FaGithub, FaLinkedin, FaEnvelope, FaDiscord } from "react-icons/fa";
 
-
 const Contact = () => {
     const text = "Let's Connect";
     const [hovered, setHovered] = useState(false);
@@ -48,6 +47,8 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-800 dark:text-gray-200 hover:scale-110 transition"
+                    aria-label="Send Email"
+                    title="Send Email"
                 >
                     <FaEnvelope size={28} />
                 </a>
@@ -56,6 +57,8 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-pink-500 dark:text-pink-400 hover:scale-110 transition"
+                    aria-label="Instagram"
+                    title="Instagram"
                 >
                     <FaInstagram size={28} />
                 </a>
@@ -64,6 +67,8 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-800 dark:text-gray-200 hover:scale-110 transition"
+                    aria-label="GitHub"
+                    title="GitHub"
                 >
                     <FaGithub size={28} />
                 </a>
@@ -72,6 +77,8 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 dark:text-blue-400 hover:scale-110 transition"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
                 >
                     <FaLinkedin size={28} />
                 </a>
@@ -80,6 +87,8 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-indigo-600 dark:text-indigo-400 hover:scale-110 transition"
+                    aria-label="Discord"
+                    title="Discord"
                 >
                     <FaDiscord size={28} />
                 </a>
